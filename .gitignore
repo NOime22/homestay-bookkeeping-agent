@@ -1,0 +1,40 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Editors / IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Python (if anyone tries to prototype a reference impl)
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Local working drafts / experimental card definitions
+*.draft.*
+*.bak
+*.bak_*
+*.local.*
+
+# Local secrets / environment files
+.env
+.env.*
+!.env.example
+secrets/
+credentials/
+
+# Logs
+*.log
+logs/
+
+# OS / tool noise
+Thumbs.db
+.cache/

@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OrderLedgerCandidate",
+  "type": "object",
+  "required": ["record_type", "target_table", "candidate_fields"],
+  "properties": {
+    "record_type": {"const": "order"},
+    "target_table": {"type": "string"},
+    "recognition_summary": {"type": "string"},
+    "candidate_fields": {
+      "type": "object",
+      "properties": {
+        "账务日期": {"type": "string"},
+        "订单名称": {"type": "string"},
+        "金额": {"type": ["string", "number"]},
+        "房源": {"type": "string"},
+        "渠道": {"type": "string"},
+        "交易平台": {"type": "string"},
+        "支付方式": {"type": "string"},
+        "入住日期": {"type": "string"},
+        "离店日期": {"type": "string"},
+        "间夜": {"type": ["string", "integer"]}
+      },
+      "additionalProperties": true
+    },
+    "missing_blocking_fields": {"type": "array", "items": {"type": "string"}},
+    "should_send_card": {"type": "boolean"}
+  },
+  "additionalProperties": true
+}

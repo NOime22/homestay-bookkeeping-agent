@@ -1,0 +1,52 @@
+id: homestay-bookkeeping-agent
+name: Homestay Bookkeeping Agent
+name_zh: 民宿记账Agent
+version: 0.1.0
+license: MIT
+author: NOime
+repository: https://github.com/NOime22/homestay-bookkeeping-agent
+summary: >-
+  A portable bookkeeping agent package for Feishu-based homestay operations,
+  focused on low-friction extraction, confirmation cards, and ledger writeback.
+description: >-
+  Independent agent package for classifying bookkeeping evidence, extracting
+  order-side and operations-side records, rendering Feishu confirmation cards,
+  and managing the edit-confirm-write loop. Host-neutral by design.
+entrypoints:
+  primary_prompt: AGENT.md
+  rules: RULES.md
+  workflows: WORKFLOWS.md
+  card_contracts: CARD_CONTRACTS.md
+  dictionaries: DICTIONARY_SPECS.md
+  lessons: LESSONS_LEARNED.md
+  base_setup: docs/feishu-base-setup.md
+  runtime_architecture: docs/runtime-architecture.md
+adapters:
+  - adapters/feishu.md
+  - adapters/hermes.md
+prompts:
+  - prompts/system.md
+  - prompts/extraction.md
+  - prompts/confirmation.md
+  - prompts/text-edit-merge.md
+schemas:
+  - schemas/operations-ledger.schema.json
+  - schemas/order-ledger.schema.json
+  - schemas/card-action-payload.schema.json
+examples:
+  - examples/operations-case-001.md
+  - examples/order-case-002.md
+  - examples/mixed-evidence-case-003.md
+  - examples/ambiguous-property-case-004.md
+  - examples/text-edit-reply-example.md
+compatibility:
+  hosts: [hermes, generic-llm-runtime]
+  channels: [feishu]
+  models: [openai, anthropic, google, openrouter, qwen, minimax, generic-openai-compatible]
+status:
+  phase: active-development
+  focus: operations-card-loop-first
+notes:
+  - Current rollout prioritizes operations-side bookkeeping before order-side UI.
+  - Schema references a reference multi-base table layout, but package structure is host-agnostic.
+  - This is a spec package; no runtime implementation is bundled.

@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OperationsLedgerCandidate",
+  "type": "object",
+  "required": ["record_type", "target_table", "candidate_fields"],
+  "properties": {
+    "record_type": {"const": "operations"},
+    "target_table": {"type": "string"},
+    "recognition_summary": {"type": "string"},
+    "candidate_fields": {
+      "type": "object",
+      "properties": {
+        "账务日期": {"type": "string"},
+        "摘要": {"type": "string"},
+        "金额": {"type": ["string", "number"]},
+        "房源": {"type": "string"},
+        "数量": {"type": ["string", "integer"]},
+        "一级科目": {"type": "string"},
+        "二级科目": {"type": "string"},
+        "交易平台": {"type": "string"},
+        "支付方式": {"type": "string"},
+        "收支方向": {"type": "string"},
+        "结算状态": {"type": "string"},
+        "备注": {"type": "string"},
+        "订单摘要": {"type": "string"},
+        "订单ID": {"type": "string"}
+      },
+      "additionalProperties": true
+    },
+    "missing_blocking_fields": {"type": "array", "items": {"type": "string"}},
+    "should_send_card": {"type": "boolean"}
+  },
+  "additionalProperties": true
+}

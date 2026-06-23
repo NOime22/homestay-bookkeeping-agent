@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "BookkeepingCardActionPayload",
+  "type": "object",
+  "properties": {
+    "candidate_id": {"type": "string"},
+    "field": {"type": "string"},
+    "action": {"type": "string"},
+    "option": {"type": "string"},
+    "source": {"type": "string"},
+    "ledger": {"type": "string"},
+    "edited_fields": {"type": "object", "additionalProperties": true}
+  },
+  "required": ["candidate_id", "source"],
+  "additionalProperties": true
+}
